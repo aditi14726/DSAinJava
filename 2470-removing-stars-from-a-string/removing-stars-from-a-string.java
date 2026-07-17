@@ -1,19 +1,14 @@
 class Solution {
     public String removeStars(String s) {
-        Stack <Character> stack= new Stack<>();
         StringBuilder ans=new StringBuilder();
-        for (int i=0;i<s.length(); i++){
-            char ch= s.charAt(i);
+        for (char ch:s.toCharArray()){
             if (ch == '*'){
-                stack.pop();
+                ans.deleteCharAt(ans.length()-1);
             }
             else{
-                stack.push(ch);
+                ans.append(ch);
             }
         }
-        while (!stack.isEmpty()) {
-                ans.insert(0, stack.pop());
-            }
         return ans.toString();
     }
 }
